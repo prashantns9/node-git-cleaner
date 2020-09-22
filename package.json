@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This interactive command line tool helps you remove all the branches without having to type long git delete commands with the branch names. Just select the branch and delete it.",
   "main": "index.js",
+  "bin": {
+    "node-git-cleaner": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +22,7 @@
     "command",
     "line"
   ],
-  "author": "Prashant Shinde",
+  "author": "Prashant Shinde (https://www.prashantshinde.in)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/prashantns9/node-git-cleaner/issues"
