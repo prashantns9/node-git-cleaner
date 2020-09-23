@@ -2,6 +2,9 @@
 ## Node Git Cleaner
 
 ### Introduction
+
+<p align="center"><img src="./assets/intro.gif" /></p>
+
 Node Git Cleaner is an interactive menu based house keeping tool for your git projects.
 
 If you are a developer who depends on Git bash only without using any GUI client, then after building some great features for your project you must eventually be ending up with lot a of feature branches in your local repository. 
