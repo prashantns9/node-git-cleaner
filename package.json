@@ -1,6 +1,6 @@
 {
   "name": "@prashantns9/node-git-cleaner",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This interactive command line tool helps you remove all the branches without having to type long git delete commands with the branch names. Just select the branch and delete it.",
   "main": "index.js",
   "bin": {
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/prashantns9/node-git-cleaner#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "inquirer": "^7.3.3"
   }
 }
