@@ -17,3 +17,10 @@ This interactive command line tool helps you remove all the branches without hav
     `npm i -g @prashantns9/node-git-cleaner`.
 - Run command `node-git-cleaner` in any git repository anywhere in your computer.
 - From the interactive menu, select a branch and press enter to delete.
+
+### Contributing
+- `gh repo clone prashantns9/node-git-cleaner`
+- `npm start`
+
+### Feedback
+- #### Please reach out to author on prashantns9@gmail.com or visit http://www.prashantshinde.in
