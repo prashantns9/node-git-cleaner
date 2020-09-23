@@ -141,7 +141,7 @@ async function tryDeleteBranch(branchName) {
 
 //driver function
 async function main() {
-    console.log(chalk.bgCyan("\n\nWelcome. Let's do some housekeeping on your git repository.\n"));
+    console.log(chalk.cyan("\n\nWelcome. Let's do some housekeeping on your git repository.\n"));
     try {
         var branchNames = await getAllBranchNames();
         var choice = await showMenu(branchNames);
