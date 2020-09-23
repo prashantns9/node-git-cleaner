@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
-var exec = require('child_process').exec;
+/**
+ * Prashant Shinde 
+ * www.prashantshinde.in
+ */
+
+const exec = require('child_process').exec;
+const inquirer = require('inquirer');
+
 const readline = require("readline");
 
 // configure input from console
@@ -41,22 +48,26 @@ function getBranchNames() {
  */
 function showMenu(branchNames) {
     return new Promise((resolve, reject) => {
-        for (let i = 0; i < branchNames.length; i++) {
-            console.log(`${i + 1}. ${branchNames[i]}`);
-        }
-
-        rl.question('\nEnter branch number that you want to delete or (q) to exit: ', (choice) => {
-            resolve(choice);
-        });
+        inquirer
+            .prompt([
+                {
+                    type: 'list',
+                    name: 'branch',
+                    message: 'Which branch do you want to delete?',
+                    choices: [...branchNames, 'Quit'],
+                }
+            ])
+            .then((answers) => {
+                resolve(answers.branch)
+            })
+            .catch(err => reject(err));
     });
 }
 
 /**
- * 
  * @param {string} branchName - name of the branch you want to delete
  * @returns {Promise} 
  */
-
 function deleteBranch(branchName) {
     return new Promise((resolve, reject) => {
         console.log("\nDeleting branch " + branchName);
@@ -77,16 +88,11 @@ async function main() {
         var branchNames = await getBranchNames();
         var choice = await showMenu(branchNames);
 
-        while (choice !== 'q') {
-            let choiceNum = parseInt(choice);
-            if (typeof (choiceNum) === "number" && choiceNum > 0 && choiceNum <= branchNames.length) {
-                // delete branch
-                await deleteBranch(branchNames[choiceNum - 1]);
-                // reload branches
-                branchNames = await getBranchNames();
-            } else {
-                console.log("\n\nInvalid Entry!\n\n");
-            }
+        while (choice && choice !== 'Quit') {
+            // delete branch
+            await deleteBranch(choice);
+            // reload branches
+            branchNames = await getBranchNames();
             choice = await showMenu(branchNames);
         };
     } catch (err) {
